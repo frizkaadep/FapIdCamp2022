@@ -165,6 +165,7 @@ function removeTaskFromCompleted(todoId /* HTMLELement */) {
   todos.splice(todoTarget, 1);
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
+  alert('Berhasil di hapus');
 }
 
 function undoTaskFromCompleted(todoId /* HTMLELement */) {
@@ -175,6 +176,7 @@ function undoTaskFromCompleted(todoId /* HTMLELement */) {
   todoTarget.isCompleted = false;
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
+  alert('Berhasil di kembalikan');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -184,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
   submitForm.addEventListener('submit', function (event) {
     event.preventDefault();
     addTodo();
+    alert('Berhasil di tambahkan');
   });
 
   if (isStorageExist()) {
@@ -191,9 +194,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-document.addEventListener(SAVED_EVENT, () => {
-  alert('data berhasil di simpan');
-});
+// document.addEventListener(SAVED_EVENT, () => {
+//   alert('data berhasil di simpan');
+// });
 
 document.addEventListener(RENDER_EVENT, function () {
   const uncompletedTODOList = document.getElementById('todos');

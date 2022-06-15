@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <title>check</title>
+</head>
+
+<body>
+
+    <p>Tampilkan beberapa teks saat kotak centang dicentang:</p>
+
+    <label for="myCheck">Checkbox:</label>
+    <input type="checkbox" id="myCheck" name="myCheck" onclick="isChecked()">
+
+    <p id="text">Checkbox is CHECKED!</p>
+
+    <script>
+
+        function isChecked() {
+            if (document.getElementById('myCheck').checked) {
+                const checkBox = checkbox.checked;
+                checkbox.checked = true;
+                console.log(checkbox.checked);
+            } else {
+                console.log('gagal');
+            }
+        }
+
+        // const checkBox = document.getElementById('myCheck');
+
+
+        // if (checkBox.checked == false) {
+        //     console.log('belum selesai');
+        // } else (checkBox.checked == true); {
+        //     console.log('sudah selesai');
+        // };
+
+
+
+        // console.log(checkBox.checked);
+
+        // function myFunction() {
+        //     var checkBox = document.getElementById("myCheck");
+        //     var text = document.getElementById("text");
+        //     if (checkBox.checked == true) {
+        //         text.style.display = "block";
+        //     } else {
+        //         text.style.display = "none";
+        //     }
+        // }
+    </script>
+
+</body>
+
+</html>
