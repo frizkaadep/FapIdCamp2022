@@ -1,93 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bookshelf Apps</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookshelf</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <header class="head_bar">
-    <h1 class="head_bar__title">Bookshelf Apps</h1>
+  <header>
+    <h1>Bookshelf App</h1>
   </header>
   <main>
-    <section class="input_section">
-      <h2>Masukkan Buku Baru</h2>
-      <form id="inputBook">
-        <div class="input">
-          <label for="inputBookTitle">Judul</label>
-          <input id="inputBookTitle" type="text" required>
-        </div>
-        <div class="input">
-          <label for="inputBookAuthor">Penulis</label>
-          <input id="inputBookAuthor" type="text" required>
-        </div>
-        <div class="input">
-          <label for="inputBookYear">Tahun</label>
-          <input id="inputBookYear" type="number" required>
-        </div>
-        <div class="input_inline">
-          <label for="inputBookIsComplete">Selesai dibaca</label>
-          <input id="inputBookIsComplete" type="checkbox" onclick="isChecked()">
-        </div>
-        <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span id="myChecked">Belum selesai
-            dibaca</span></button>
-      </form>
-    </section>
+    <section class="input-section">
+      <div>
+        <h2>Masukan Buku Baru</h2>
+        <form id="input-buku">
+          <div class="input judul">
+            <label for="inputJudulBuku">Judul</label>
+            <input id="inputJudulBuku" type="text" placeholder="Harry Potter" required>
+          </div>
+          <div class="flex-row">
+            <div class="input penulis">
+              <label for="inputPenulisBuku">Penulis</label>
+              <input id="inputPenulisBuku" type="text" placeholder="J. K. Rowling" required>
+            </div>
+            <div class="input tahun">
+              <label for="inputTahunBuku">Tahun</label>
+              <input id="inputTahunBuku" type="number" placeholder="1997" required>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="input-checkbox">
+              <label for="dibaca">Selesai dibaca</label>
+              <input id="dibaca" type="checkbox">
+            </div>
+            <div class="button">
+              <button id="input-submit" type="submit">Tambah</button>
+            </div>
+          </div>
+        </form>
 
-    <section class="search_section">
-      <h2>Cari Buku (Opsional)</h2>
-      <form id="searchBook">
-        <label for="searchBookTitle">Judul</label>
-        <input id="searchBookTitle" type="text">
-        <button id="searchSubmit" type="submit">Cari</button>
-      </form>
-    </section>
-
-    <section class="book_shelf">
-      <h2>Belum selesai dibaca</h2>
-
-      <div id="incompleteBookshelfList" class="book_list">
-        <!--      <article class="book_item">-->
-        <!--        <h3>Book Title</h3>-->
-        <!--        <p>Penulis: John Doe</p>-->
-        <!--        <p>Tahun: 2002</p>-->
-        <!--    -->
-        <!--        <div class="action">-->
-        <!--          <button class="green">Selesai dibaca</button>-->
-        <!--          <button class="red">Hapus buku</button>-->
-        <!--        </div>-->
-        <!--      </article>-->
+        <div class="cari-buku">
+          <h3>Cari Buku</h3>
+          <form id="cari-buku">
+            <input id="inputCariBuku" type="text" placeholder="Judul Buku">
+            <button id="cari" type="button">Cari</button>
+          </form>
+        </div>
       </div>
     </section>
-
-    <section class="book_shelf">
-      <h2>Selesai dibaca</h2>
-
-      <div id="completeBookshelfList" class="book_list">
-        <!--      <article class="book_item">-->
-        <!--        <h3>Book Title</h3>-->
-        <!--        <p>Penulis: John Doe</p>-->
-        <!--        <p>Tahun: 2002</p>-->
-        <!--        -->
-        <!--        <div class="action">-->
-        <!--          <button class="green">Belum selesai di Baca</button>-->
-        <!--          <button class="red">Hapus buku</button>-->
-        <!--        </div>-->
-        <!--      </article>-->
+    <section class="book-shelf">
+      <h2>Belum Selesai Dibaca</h2>
+      <div class="book-list" id="belumDibaca">
+        <!--daftar buku-->
+      </div>
+    </section>
+    <section class="book-shelf">
+      <h2>Selesai Dibaca</h2>
+      <div class="book-list" id="telahDibaca">
+        <!--daftar buku-->
+      </div>
+    </section>
+    <section class="edit-section" hidden>
+      <div class="edit-form">
+        <button id="closeForm">X</button>
+        <form id="edit-buku">
+          <h3>Edit Buku</h3>
+          <div class="input judul">
+            <label for="editJudulBuku">Judul</label>
+            <input id="editJudulBuku" type="text" required>
+          </div>
+          <div class="flex-row">
+            <div class="input penulis">
+              <label for="editPenulisBuku">Penulis</label>
+              <input id="editPenulisBuku" type="text" required>
+            </div>
+            <div class="input tahun">
+              <label for="editTahunBuku">Tahun</label>
+              <input id="editTahunBuku" type="number" required>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="input-checkbox">
+              <label for="editBaca">Selesai dibaca</label>
+              <input id="editBaca" type="checkbox">
+            </div>
+            <div class="button">
+              <button id="edit-submit" type="button">Edit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </section>
   </main>
 
-  <script src="main.js"></script>
-
+  <script src="./js/data.js"></script>
+  <script src="./js/dom.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
